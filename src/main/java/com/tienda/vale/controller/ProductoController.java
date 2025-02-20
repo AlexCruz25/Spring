@@ -8,6 +8,8 @@ import com.tienda.vale.model.Producto;
 import com.tienda.vale.service.IProductoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,9 +32,13 @@ public class ProductoController {
     }
     
     @PostMapping ("/producto/crear")
-    public String saveProducto(@RequestBody Producto producto){
+    public ResponseEntity<String> saveProducto(@RequestBody Producto producto){
+         try {
         productoServ.saveProducto(producto);
-        return "Producto crado";
+        return ResponseEntity.status(HttpStatus.CREATED).body("Producto creado");
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al crear el producto");
+    }
     }
     
     @DeleteMapping ("/producto/borrar/{id}")
