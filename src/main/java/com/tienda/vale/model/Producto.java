@@ -27,6 +27,7 @@ public class Producto {
     private String descripcion;
     private Double precio;
     private int stock;
+    private String url;
     
     
     
@@ -47,14 +48,16 @@ public class Producto {
     public Producto() {
     }
 
-    public Producto(Long id, String nombre, String descripcion, Double precio, int stock, TipoProducto tipoProducto, Administrador administrador) {
+    public Producto(Long id, String nombre, String descripcion, Double precio, int stock, String url, TipoProducto tipoProducto, Administrador administrador) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.stock = stock;
+        this.url = url;
         this.tipoProducto = tipoProducto;
         this.administrador = administrador;
     }
-    
+
+   
 }

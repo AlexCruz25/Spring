@@ -64,7 +64,7 @@ public class ProductoService implements IProductoService{
     }
 
     @Override
-    public Producto guardarProducto(String nombre,String descripcion, double precio, int stock, Long tipoProductoId) {
+    public Producto guardarProducto(String nombre,String descripcion, double precio, int stock, Long tipoProductoId,String url) {
         TipoProducto tipo= tipoProductoRepo.findById(tipoProductoId).orElse(null);
         Administrador admin= adminRepo.findById(tipoProductoId).orElse(null);
         
@@ -72,7 +72,7 @@ public class ProductoService implements IProductoService{
             throw new RuntimeException("Tipo de producto o administrador no encontrado");
         }
         
-        Producto producto= new Producto(null,nombre,descripcion,precio,stock,tipo,admin);
+        Producto producto= new Producto(null,nombre,descripcion,precio,stock,url,tipo,admin);
         return productoRepo.save(producto);
     }
     

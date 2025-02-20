@@ -1,7 +1,9 @@
 
 package com.tienda.vale.model;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import java.util.List;
@@ -13,10 +15,10 @@ import lombok.Setter;
 
 public class Administrador extends Usuario {
        
-    @OneToMany
+    @OneToMany(mappedBy = "administrador", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List <Producto> listaProductos;
     
-    @OneToMany
+    @OneToMany(mappedBy = "administrador", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Reporte> reportes;
 
     public Administrador() {
