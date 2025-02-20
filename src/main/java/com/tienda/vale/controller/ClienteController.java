@@ -4,10 +4,14 @@
  */
 package com.tienda.vale.controller;
 
+import DTO.loginDto;
 import com.tienda.vale.model.Cliente;
+import com.tienda.vale.model.Usuario;
 import com.tienda.vale.service.IClienteService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -55,6 +59,14 @@ public class ClienteController {
         clienteServ.editCliente(idOriginal, nuevaId, nuevoNombre, nuevoApellido, nuevaEdad);
         Cliente cli= clienteServ.findCliente(nuevaId);
         return cli;
+    }
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody loginDto loginDto) {
+        Cliente cli = clienteServ.findByEmail(loginDto.getEmail());
+        if (cli!= null && cli.getPassword().equals(loginDto.getPassword())) {
+            return ResponseEntity.ok("Login exitoso");
+        }
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales inválidas");
     }
     
 }

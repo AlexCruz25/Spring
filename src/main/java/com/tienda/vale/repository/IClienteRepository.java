@@ -5,12 +5,13 @@
 package com.tienda.vale.repository;
 
 import com.tienda.vale.model.Cliente;
+import com.tienda.vale.model.Usuario;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author Usuario
- */
+@Repository
 public interface IClienteRepository extends JpaRepository <Cliente, Long>{
-    
+   Optional<Cliente> findByEmail(String email);
+
 }

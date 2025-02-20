@@ -8,11 +8,9 @@ import com.tienda.vale.model.Carrito;
 import com.tienda.vale.model.CarritoProducto;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author Usuario
- */
+@Repository
 public interface ICarritoProductoRepository extends JpaRepository <CarritoProducto, Long>{
     List<CarritoProducto> findByCarrito(Carrito carrito);
     

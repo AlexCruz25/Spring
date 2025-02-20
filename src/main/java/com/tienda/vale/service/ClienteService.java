@@ -6,6 +6,7 @@ package com.tienda.vale.service;
 
 import com.tienda.vale.model.Carrito;
 import com.tienda.vale.model.Cliente;
+import com.tienda.vale.model.Usuario;
 import com.tienda.vale.repository.ICarritoRepository;
 import com.tienda.vale.repository.IClienteRepository;
 import java.util.List;
@@ -63,6 +64,13 @@ public class ClienteService implements IClienteService {
         
         this.saveCliente(cli);
     }
+
+    @Override
+    public Cliente findByEmail(String email) {
+         return clienteRepo.findByEmail(email).orElse(null);
+    }
+    
+      
     
     
     

@@ -3,6 +3,7 @@ com\tienda\vale\repository\IPedidoProductoRepository.class
 com\tienda\vale\SecurityConfig.class
 com\tienda\vale\service\ReporteService.class
 com\tienda\vale\repository\IClienteRepository.class
+DTO\loginDto.class
 com\tienda\vale\model\Administrador.class
 com\tienda\vale\repository\IAdministradorRepository.class
 com\tienda\vale\repository\ITipoProductoRepository.class

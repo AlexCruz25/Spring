@@ -5,6 +5,7 @@
 package com.tienda.vale.service;
 
 import com.tienda.vale.model.Cliente;
+import com.tienda.vale.model.Usuario;
 import java.util.List;
 
 
@@ -21,5 +22,7 @@ public interface IClienteService {
     
     public void editCliente (Long idOriginal, Long idNueva, String nuevoNombre,
                             String nuevoApellido, int nuevaEdad);
+    
+    public Cliente findByEmail(String email);
     
 }

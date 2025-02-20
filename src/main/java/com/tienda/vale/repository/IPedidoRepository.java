@@ -6,11 +6,10 @@ package com.tienda.vale.repository;
 
 import com.tienda.vale.model.Pedido;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-/**
- *
- * @author Usuario
- */
+
+@Repository
 public interface IPedidoRepository extends JpaRepository <Pedido,Long >{
     
 }
