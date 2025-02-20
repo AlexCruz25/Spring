@@ -31,14 +31,14 @@ public class Producto {
     
     
     @ManyToOne
-    @JoinColumn(name= "tipo_producto_id", nullable= false)
+    @JoinColumn(name="tipo_producto_id")
     @JsonIgnore
     private TipoProducto tipoProducto;
     
     
     
     @ManyToOne
-    @JoinColumn(name="administrador_id", nullable= false)
+    @JoinColumn(name="administrador_id")
     @JsonIgnore
     private Administrador administrador;
     
