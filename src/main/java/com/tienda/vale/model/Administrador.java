@@ -13,7 +13,7 @@ import lombok.Setter;
 
 public class Administrador extends Usuario {
        
-    @ManyToMany
+    @OneToMany
     private List <Producto> listaProductos;
     
     @OneToMany
