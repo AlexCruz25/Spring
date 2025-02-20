@@ -4,6 +4,7 @@
  */
 package com.tienda.vale.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 
 import jakarta.persistence.GeneratedValue;
@@ -31,12 +32,14 @@ public class Producto {
     
     @ManyToOne
     @JoinColumn(name= "tipo_producto_id", nullable= false)
+    @JsonIgnore
     private TipoProducto tipoProducto;
     
     
     
     @ManyToOne
     @JoinColumn(name="administrador_id", nullable= false)
+    @JsonIgnore
     private Administrador administrador;
     
    

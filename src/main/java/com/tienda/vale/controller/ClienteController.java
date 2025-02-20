@@ -30,7 +30,7 @@ public class ClienteController {
     }
     
     
-    
+    //agregar cliente
     @PostMapping ("/cliente/crear")
     public String saveCliente (@RequestBody Cliente cliente){
         clienteServ.saveCliente(cliente);
